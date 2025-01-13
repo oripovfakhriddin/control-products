@@ -74,15 +74,8 @@ const Datatable = () => {
         className='datagrid'
         rows={data}
         columns={productColumns.concat(actionColumn)}
-        pageSize={9}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 5,
-            },
-          },
-        }}
-        rowsPerPageOptions={[9]}
+        pageSize={10}
+        rowsPerPageOptions={[10]}
       />
     </div>
   );
