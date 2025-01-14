@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 import Edit from "./pages/edit/Edit";
+import Settings from "./pages/settings/Settings";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -51,6 +52,14 @@ function App() {
                     inputs={productInputs}
                     title={`Mahsulotni tahrirlash`}
                   />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path='settings/:id'
+              element={
+                <RequireAuth>
+                  <Settings />
                 </RequireAuth>
               }
             />

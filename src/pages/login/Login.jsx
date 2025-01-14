@@ -4,13 +4,14 @@ import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.scss";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navitage = useNavigate();
+  const navigate = useNavigate();
 
   const { dispatch } = useContext(AuthContext);
 
@@ -19,10 +20,10 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         dispatch({ type: "LOGIN", payload: user });
-        navitage("/");
+        toast.success("Tizimga kirdingiz.");
+        navigate("/");
       })
       .catch((error) => {
         setError(true);
