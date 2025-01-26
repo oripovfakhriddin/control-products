@@ -23,7 +23,8 @@ const New = ({ inputs, title }) => {
     try {
       await addDoc(collection(db, "products"), {
         ...data,
-        timeStamp: serverTimestamp(),
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
       });
       toast.success("Mahsulot qo'shildi.");
       navigate(-1);

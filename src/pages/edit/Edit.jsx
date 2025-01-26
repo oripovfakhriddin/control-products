@@ -2,7 +2,7 @@ import "./edit.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import { useState, useEffect } from "react";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -41,7 +41,7 @@ const Edit = ({ inputs, title }) => {
     e.preventDefault();
     try {
       const docRef = doc(db, "products", id);
-      await updateDoc(docRef, data);
+      await updateDoc(docRef, { ...data, updatedAt: serverTimestamp() });
       toast.success("Tahrir muvaffaqiyatli saqlandi!");
       navigate(-1);
     } catch (err) {

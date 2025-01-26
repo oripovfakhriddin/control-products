@@ -19,8 +19,9 @@ const Datatable = () => {
           list.push({ id: doc.id, ...doc.data() });
         });
         setData(list);
+        console.log(list);
       },
-      (error) => {
+      (err) => {
         toast.error("Mahsulotlarni olishda xatolik yuzaga keldi.");
       }
     );
