@@ -15,11 +15,10 @@ const Datatable = () => {
       collection(db, "products"),
       (snapShot) => {
         let list = [];
-        snapShot.docs.forEach((doc) => {
-          list.push({ id: doc.id, ...doc.data() });
+        snapShot.docs.forEach((doc, index) => {
+          list.push({ id: doc.id, tr: index + 1, ...doc.data() });
         });
         setData(list);
-        console.log(list);
       },
       (err) => {
         toast.error("Mahsulotlarni olishda xatolik yuzaga keldi.");
@@ -46,6 +45,7 @@ const Datatable = () => {
       headerName: "Amallar",
       width: 200,
       sortable: false,
+      headerAlign: "center",
       editabele: true,
       renderCell: (params) => {
         return (

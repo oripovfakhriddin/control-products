@@ -56,6 +56,51 @@
   border: 1px solid gray;
   font-size: 20px;
 }
+.new .newContainer .top .right form .formInput1,
+.new .newContainer .bottom .right form .formInput1 {
+  width: 95% !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.new .newContainer .top .right form .formInput1 label,
+.new .newContainer .bottom .right form .formInput1 label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 10px;
+}
+.new .newContainer .top .right form .formInput1 label .icon,
+.new .newContainer .bottom .right form .formInput1 label .icon {
+  cursor: pointer;
+}
+.new .newContainer .top .right form .formInput1 div:nth-child(1),
+.new .newContainer .bottom .right form .formInput1 div:nth-child(1) {
+  width: 70%;
+}
+.new .newContainer .top .right form .formInput1 div:nth-child(2),
+.new .newContainer .bottom .right form .formInput1 div:nth-child(2) {
+  width: 28%;
+}
+.new .newContainer .top .right form .formInput1 div:nth-child(2) select,
+.new .newContainer .bottom .right form .formInput1 div:nth-child(2) select {
+  width: 100%;
+  padding: 5px;
+  outline: none;
+  border: 1px solid gray;
+  font-size: 20px;
+}
+.new .newContainer .top .right form .formInput1 input,
+.new .newContainer .bottom .right form .formInput1 input {
+  padding: 5px;
+  outline: none;
+  border: 1px solid gray;
+  font-size: 20px;
+}
+.new .newContainer .top .right form .formInput1:nth-child(3),
+.new .newContainer .bottom .right form .formInput1:nth-child(3) {
+  flex-direction: row-reverse;
+}
 .new .newContainer .top .right form button,
 .new .newContainer .bottom .right form button {
   width: 100%;
