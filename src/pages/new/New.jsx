@@ -81,6 +81,7 @@ const New = ({ inputs, title }) => {
                   id='name'
                   type='text'
                   placeholder='Iphone 16 Pro Max'
+                  required
                   onChange={handleInput}
                 />
               </div>
@@ -90,6 +91,7 @@ const New = ({ inputs, title }) => {
                   <input
                     id='countValue'
                     type='number'
+                    required
                     placeholder='Mahsulot miqdori: 16'
                     onChange={handleInput}
                   />
@@ -115,6 +117,7 @@ const New = ({ inputs, title }) => {
                   <input
                     id='priceValue'
                     type='number'
+                    required
                     placeholder='Mahsulot narxi'
                     onChange={handleInput}
                   />
