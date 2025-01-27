@@ -2,17 +2,26 @@ import { DataGrid } from "@mui/x-data-grid";
 import { productColumns } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
+import { toast } from "react-toastify";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  query,
+  orderBy,
+} from "firebase/firestore";
 import { db } from "../../firebase";
 import "./datatable.scss";
-import { toast } from "react-toastify";
 
 const Datatable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    const q = query(collection(db, "products"), orderBy("updatedAt", "desc"));
+
     const unsub = onSnapshot(
-      collection(db, "products"),
+      q,
       (snapShot) => {
         let list = [];
         snapShot.docs.forEach((doc, index) => {
@@ -35,7 +44,7 @@ const Datatable = () => {
       await deleteDoc(doc(db, "products", id));
       toast.success("Mahsulot o'chirildi.");
     } catch (err) {
-      toast.error("Mahsulot o'chirishda xaxtolik yuzaga keldi,");
+      toast.error("Mahsulot o'chirishda xatolik yuzaga keldi,");
     }
   };
 
@@ -46,7 +55,7 @@ const Datatable = () => {
       width: 200,
       sortable: false,
       headerAlign: "center",
-      editabele: true,
+      editable: true,
       renderCell: (params) => {
         return (
           <div className='cellAction'>
@@ -63,6 +72,7 @@ const Datatable = () => {
       },
     },
   ];
+
   return (
     <div className='datatable'>
       <div className='datatableTitle'>
